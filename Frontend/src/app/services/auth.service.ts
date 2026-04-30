@@ -6,7 +6,8 @@ import { tap } from 'rxjs/operators';
 interface LoginResponse {
   token: string;
   userId: number;
-  username: string;
+  email: string;
+  username?: string;
 }
 
 @Injectable({
@@ -19,17 +20,20 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  register(username: string, email: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, { username, email, password });
+  register(email: string, password: string, username?: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/register`, { email, password, username });
   }
 
-  login(username: string, password: string): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${this.apiUrl}/login`, { username, password })
+  login(email: string, password: string): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(`${this.apiUrl}/login`, { email, password })
       .pipe(
         tap(response => {
           localStorage.setItem('token', response.token);
           localStorage.setItem('userId', response.userId.toString());
-          localStorage.setItem('username', response.username);
+          localStorage.setItem('email', response.email);
+          if (response.username) {
+            localStorage.setItem('username', response.username);
+          }
           this.tokenSubject.next(response.token);
         })
       );
