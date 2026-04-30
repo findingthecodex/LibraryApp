@@ -1,0 +1,22 @@
+# Build
+bin/
+obj/
+
+# User files
+*.user
+*.suo
+
+# Rider / IntelliJ
+.idea/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+
+# Secrets
+appsettings.Development.json
