@@ -20,3 +20,8 @@ obj/
 
 # Secrets
 appsettings.Development.json
+
+# Database
+*.db
+*.db-shm
+*.db-wal
