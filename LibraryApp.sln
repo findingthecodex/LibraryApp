@@ -1,8 +1,8 @@
-﻿
+﻿ 
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.Api", "LibraryApp.Api\LibraryApp.Api.csproj", "{09BAEF97-D4AA-4666-A16B-B0154C7855B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.Api", "Backend/LibraryApp.Api/LibraryApp.Api.csproj", "{09BAEF97-D4AA-4666-A16B-B0154C7855B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.Domain", "LibraryApp.Domain\LibraryApp.Domain.csproj", "{8E75A818-FA4B-4425-BDE0-45DAA4EADC48}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.Domain", "Backend/LibraryApp.Domain/LibraryApp.Domain.csproj", "{8E75A818-FA4B-4425-BDE0-45DAA4EADC48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
