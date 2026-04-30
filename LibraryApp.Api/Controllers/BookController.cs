@@ -1,5 +1,6 @@
 using LibraryApp.Api.Data;
 using LibraryApp.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,6 +32,7 @@ public class BooksController : ControllerBase
         return book;
     }
 
+    [Authorize]
     [HttpPost]
     public async Task<ActionResult<Book>> CreateBook(Book book)
     {
@@ -39,6 +41,7 @@ public class BooksController : ControllerBase
         return CreatedAtAction(nameof(GetBook), new { id = book.Id }, book);
     }
 
+    [Authorize]
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateBook(int id, Book book)
     {
@@ -50,6 +53,7 @@ public class BooksController : ControllerBase
         return NoContent();
     }
 
+    [Authorize]
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteBook(int id)
     {
