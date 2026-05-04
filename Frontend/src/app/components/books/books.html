@@ -1,1 +1,90 @@
-<p>books works!</p>
+<div class="container mt-5">
+  <h2 class="mb-4">
+    <i class="fas fa-book"></i> My Books
+  </h2>
+
+  <button
+    class="btn btn-primary mb-4"
+    (click)="toggleForm()"
+  >
+    <i class="fas fa-plus"></i> Add New Book
+  </button>
+
+  <!-- Add/Edit Book Form -->
+  <div *ngIf="showForm" class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">{{ editingId ? 'Edit' : 'Add New' }} Book</h5>
+
+      <form (ngSubmit)="saveBook()">
+        <div class="mb-3">
+          <label class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="newBook.title"
+            name="title"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Author</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="newBook.author"
+            name="author"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Publish Date</label>
+          <input
+            type="date"
+            class="form-control"
+            [(ngModel)]="newBook.publishDate"
+            name="publishDate"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="loading">
+          {{ loading ? 'Saving...' : 'Save' }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary ms-2"
+          (click)="toggleForm()"
+        >
+          Cancel
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Books List -->
+  <div class="row">
+    <div *ngFor="let book of books" class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ book.title }}</h5>
+          <p class="card-text"><strong>Author:</strong> {{ book.author }}</p>
+          <p class="card-text"><strong>Published:</strong> {{ book.publishDate }}</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-sm btn-warning me-2" (click)="editBook(book)">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button class="btn btn-sm btn-danger" (click)="deleteBook(book.id)">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="books.length === 0 && !showForm" class="alert alert-info">
+    No books yet. Add your first!
+  </div>
+</div>
