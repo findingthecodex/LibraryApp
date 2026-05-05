@@ -39,15 +39,17 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Publish Date</label>
-          <input
-            type="date"
-            class="form-control"
-            [(ngModel)]="newBook.publishDate"
-            name="publishDate"
-            required
-          />
-        </div>
+  <label class="form-label">Publish Date</label>
+  <input
+    type="date"
+    class="form-control"
+    [(ngModel)]="newBook.publishDate"
+    name="publishDate"
+    min="1900-01-01"
+    max="2100-12-31"
+    required
+  />
+</div>
 
         <button type="submit" class="btn btn-success" [disabled]="loading">
           {{ loading ? 'Saving...' : 'Save' }}
@@ -70,7 +72,9 @@
         <div class="card-body">
           <h5 class="card-title">{{ book.title }}</h5>
           <p class="card-text"><strong>Author:</strong> {{ book.author }}</p>
-          <p class="card-text"><strong>Published:</strong> {{ book.publishDate }}</p>
+          <p class="card-text"><strong>Published:</strong>
+  {{ book.publishDate | date: 'yyyy-MM-dd' }}
+</p>
         </div>
         <div class="card-footer">
           <button class="btn btn-sm btn-warning me-2" (click)="editBook(book)">
