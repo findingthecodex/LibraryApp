@@ -16,6 +16,8 @@ export class Books implements OnInit {
   loading = false;
   constructor(private bookService: BookService) {}
   ngOnInit() {
+    const userId = localStorage.getItem('userId');
+    this.newBook.userId = userId ? parseInt(userId, 10) : 0;
     this.loadBooks();
   }
   loadBooks() {
@@ -29,9 +31,17 @@ export class Books implements OnInit {
   toggleForm() {
     this.showForm = !this.showForm;
     this.editingId = null;
-    this.newBook = { title: '', author: '', publishDate: '', userId: 0 };
+    const userId = localStorage.getItem('userId');
+    this.newBook = {
+      title: '',
+      author: '',
+      publishDate: '',
+      userId: userId ? parseInt(userId, 10) : 0
+    };
   }
   saveBook() {
+    this.newBook.userId = parseInt(localStorage.getItem('userId') || '0', 10);
+
     if (!this.newBook.title || !this.newBook.author) {
       alert('Please fill in all fields');
       return;
