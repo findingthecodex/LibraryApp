@@ -15,36 +15,36 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 🔥 Node för Angular
+      # Node för Angular
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # 🔥 Bygg Angular
+      # Bygg Angular
       - name: Build Angular
         run: |
           cd Frontend
           npm install
           npm run build
 
-      # 🔥 Kopiera till backend
+      # Kopiera till backend
       - name: Copy Angular to wwwroot
         run: |
           mkdir Backend/LibraryApp.Api/wwwroot
-          xcopy Frontend\dist\browser\* Backend\LibraryApp.Api\wwwroot\ /E /I
+          xcopy Frontend\dist\LibraryApp.Frontend\browser\* Backend\LibraryApp.Api\wwwroot\ /E /I /Y
 
-      # 🔥 .NET
+      # .NET
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.x'
 
-      # 🔥 FIX: rätt path
+      # FIX: rätt path
       - name: Build with dotnet
         run: dotnet build Backend/LibraryApp.Api/LibraryApp.Api.csproj --configuration Release
 
-      # 🔥 FIX: rätt path
+      # FIX: rätt path
       - name: dotnet publish
         run: dotnet publish Backend/LibraryApp.Api/LibraryApp.Api.csproj -c Release -o "${{env.DOTNET_ROOT}}/myapp"
 
