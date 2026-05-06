@@ -1,0 +1,190 @@
+/* Container & Rubrik */
+.container {
+  max-width: 1100px;
+  padding-bottom: 3rem;
+}
+
+h2 {
+  color: #2d3436;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+h2 i {
+  color: #007bff;
+}
+
+/* Huvudknapp för att lägga till */
+.btn-primary {
+  background: linear-gradient(135deg, #007bff, #6610f2);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 16, 242, 0.3);
+}
+
+/* Formulär-kortet */
+.card.mb-4 {
+  border: none;
+  border-radius: 15px;
+  background: #f8f9fa;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  border: 1px dashed #dee2e6;
+}
+
+/* Bok-korten i listan */
+.card.h-100 {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.card.h-100:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  border-color: #007bff;
+}
+
+/* Boktitel styling */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2d3436;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+/* Textdetaljer */
+.card-text {
+  color: #636e72;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text strong {
+  color: #2d3436;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  margin-right: 5px;
+}
+
+/* Footer & Knappar */
+.card-footer {
+  background: transparent;
+  border-top: 1px solid #edf2f7;
+  padding: 1rem 1.25rem;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-sm {
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-weight: 600;
+  border: none;
+  transition: all 0.2s;
+}
+
+/* Edit-knapp (Gul/Orange) */
+.btn-warning {
+  background-color: #fff9db;
+  color: #f08c00;
+}
+
+.btn-warning:hover {
+  background-color: #f08c00;
+  color: #fff;
+}
+
+/* Delete-knapp (Röd) */
+.btn-danger {
+  background-color: #fff5f5;
+  color: #e53e3e;
+}
+
+.btn-danger:hover {
+  background-color: #e53e3e;
+  color: #fff;
+}
+
+/* Input-fält styling */
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  padding: 10px 15px;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  border-color: #007bff;
+}
+
+/* --- SYNCHRONIZED ACTION BUTTONS --- */
+
+/* Behållaren för knapparna */
+.card-footer {
+  background: transparent !important;
+  border-top: 1px solid #edf2f7 !important;
+  padding: 1rem 1.25rem !important;
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+/* Basstilen för knapparna */
+.btn-action {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+  font-family: sans-serif; /* Tvingar samma typsnitt */
+}
+
+/* Edit-knapp (Gul/Orange) */
+.btn-edit {
+  background-color: #fff9db !important;
+  color: #f08c00 !important;
+}
+
+.btn-edit:hover {
+  background-color: #f08c00 !important;
+  color: #ffffff !important;
+}
+
+/* Delete-knapp (Röd) */
+.btn-delete {
+  background-color: #fff5f5 !important;
+  color: #e53e3e !important;
+}
+
+.btn-delete:hover {
+  background-color: #e53e3e !important;
+  color: #ffffff !important;
+}
+
+/* Ikon-storlek */
+.btn-action i {
+  font-size: 0.9rem;
+}
