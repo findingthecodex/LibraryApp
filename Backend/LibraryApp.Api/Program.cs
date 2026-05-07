@@ -33,8 +33,11 @@ builder.Services.AddAuthentication(x =>
 });
 
 // Add services to the container
+var dbPath = builder.Environment.IsProduction()
+    ? "/home/data/library.db"
+    : "library.db";
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite("Data Source=library.db"));
+    options.UseSqlite($"Data Source={dbPath}"));
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
