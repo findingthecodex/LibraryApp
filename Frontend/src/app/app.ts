@@ -15,6 +15,10 @@ export class App {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  get isLoggedIn(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
