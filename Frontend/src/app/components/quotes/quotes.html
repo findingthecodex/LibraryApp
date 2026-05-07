@@ -30,7 +30,7 @@
 
   <!-- Lista -->
   <div class="row">
-    <div *ngFor="let quote of quotes | slice:0:5" class="col-md-6 mb-4">
+    <div *ngFor="let quote of pagedQuotes" class="col-md-6 mb-4">
       <div class="card h-100">
         <div class="card-body">
           <blockquote class="blockquote">
@@ -54,5 +54,16 @@
 
   <div *ngIf="quotes.length === 0 && !showForm" class="alert alert-info">
     No quotes yet. Add your first!
+  </div>
+
+  <!-- Paginering -->
+  <div *ngIf="totalPages > 1" class="pagination-wrapper">
+    <button class="page-btn" (click)="prevPage()" [disabled]="currentPage === 1">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <span class="page-info">{{ currentPage }} / {{ totalPages }}</span>
+    <button class="page-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">
+      <i class="fas fa-chevron-right"></i>
+    </button>
   </div>
 </div>

@@ -15,6 +15,24 @@ export class Quotes implements OnInit {
   showForm = false;
   editingId: number | null = null;
   loading = false;
+  currentPage = 1;
+  readonly pageSize = 5;
+
+  get sortedQuotes(): Quote[] {
+    return [...this.quotes].sort((a, b) => (b.id ?? 0) - (a.id ?? 0));
+  }
+
+  get pagedQuotes(): Quote[] {
+    const start = (this.currentPage - 1) * this.pageSize;
+    return this.sortedQuotes.slice(start, start + this.pageSize);
+  }
+
+  get totalPages(): number {
+    return Math.max(1, Math.ceil(this.quotes.length / this.pageSize));
+  }
+
+  prevPage() { if (this.currentPage > 1) this.currentPage--; }
+  nextPage() { if (this.currentPage < this.totalPages) this.currentPage++; }
 
   constructor(private quoteService: QuoteService) {}
 
@@ -28,6 +46,7 @@ export class Quotes implements OnInit {
     this.quoteService.getQuotes().subscribe({
       next: (data) => {
         this.quotes = data;
+        this.currentPage = 1;
       },
       error: (err) => console.error(err)
     });
