@@ -13,7 +13,7 @@ export interface Quote {
   providedIn: 'root'
 })
 export class QuoteService {
-  private apiUrl = 'http://localhost:5280/api/quotes';
+  private apiUrl = '/api/quotes';
 
   constructor(private http: HttpClient) {}
 
