@@ -25,3 +25,6 @@ appsettings.Development.json
 *.db
 *.db-shm
 *.db-wal
+
+# Claude Code
+.claude/settings.local.json
